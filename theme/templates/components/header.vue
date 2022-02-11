@@ -4,11 +4,7 @@
     <div class="desktop desktop-nav" :style="`border-bottom: 1px solid ${global_config.props.header_border_color};background-color: ${global_config.props.header_bg_color};`">
       <div class="left bottom-menu">
         <div class="left__navigation">
-          
-        </div>
-      </div>
-    <div class="right-nav">
-    <ul class="l1-navigation-list">
+          <ul class="l1-navigation-list">
             <li
               class="l1-navigation-list__item mr-5"
               v-for="(nav, index) in context.navigation"
@@ -42,45 +38,16 @@
               </ul>
             </li>
           </ul>
+        </div>
+      </div>
+    <div class="right-nav">
+    
       <div class="center-cont">
         <fdk-link link="/" class="center-cont__logo">
           <img :src="context.logo.secure_url" alt />
         </fdk-link>
       </div>
-      <ul class="l1-navigation-list">
-            <li
-              class="l1-navigation-list__item mr-5"
-              v-for="(nav, index) in context.navigation"
-              :key="index"
-            >
-              <fdk-link :link="nav.link" >
-                <span class="u-df-align-center">
-                  <p class="mr-2">{{ nav.display }}</p>
-                  <span class="dropdown-icon"  >
-                    <!-- <IosArrowDownIcon
-                      class="u-df-align-center"
-                      v-if="nav.sub_navigation"
-                    /> -->
-                    <svg  v-if="nav.sub_navigation && nav.sub_navigation.length>0" class="u-df-align-center" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="14px" :style="`fill:${global_config.props.header_icon_color}`"
-                      viewBox="0 0 512 512"  xml:space="preserve">
-                    <path  d="M256,294.1L383,167c9.4-9.4,24.6-9.4,33.9,0s9.3,24.6,0,34L273,345c-9.1,9.1-23.7,9.3-33.1,0.7L95,201.1
-                      c-4.7-4.7-7-10.9-7-17c0-6.1,2.3-12.3,7-17c9.4-9.4,24.6-9.4,33.9,0L256,294.1z"/>
-                    </svg>
-                  </span>
-                </span>
-              </fdk-link>
-
-              <ul class="l2-navigation-list" v-if="nav.sub_navigation && nav.sub_navigation.length>0" :style="`background-color: ${global_config.props.header_bg_color};color: ${global_config.props.header_text_color}`">
-                <li
-                  class="l2-navigation-list__item"
-                  v-for="(subnav, index) in nav.sub_navigation"
-                  :key="index"
-                >
-                  <fdk-link :link="subnav.link"><p>{{ subnav.display }}</p></fdk-link>
-                </li>
-              </ul>
-            </li>
-          </ul>
+      
       <div class="right u-df-align-center">
         <fdk-accounts class="right__icons" >
           <template slot-scope="accountsData">
