@@ -1,7 +1,40 @@
 <template>
 <div :class="{'header-wrap': true, 'header-wrap-menu-below': global_config.props.menu_position == 'bottom'}" :style="`--header_nav_hover_color:${global_config.props.header_nav_hover_color};--header_icon_color:${global_config.props.header_icon_color};`">
   <div class="header" :style="`background-color: ${global_config.props.header_bg_color};color: ${global_config.props.header_text_color}`">
-    <div class="desktop desktop-nav" :style="`border-bottom: 1px solid ${global_config.props.header_border_color};background-color: ${global_config.props.header_bg_color};`">
+    <div class="desktop desktop-nav" :style="`border-bottom: 1px solid ${global_config.props.header_border_color};background-color: ${global_config.props.header_bg_color};`">4
+      <fdk-search>
+       <template slot-scope="searchData">
+           <span>
+                <input
+                    :placeholder="search_placeholder"
+                    autocomplete="off"
+                    v-model="searchtext"
+                    type="text"
+                    id="search"
+                    @keyup.enter="selectedIndex === null
+                    ? getEnterSearchData(searchData)
+                    : getSearchData()"
+                    @keydown="onArrowKey"
+                    @input="inputSearchResults(searchData)"
+                    v-on:click="showlist = true"/>
+                <div>
+                    <div v-if="searchData.suggestions.length > 0 && showlist">
+                        <ul>
+                            <li
+                            v-for="(value, name, index) in getGroupedResults(
+                              searchData.suggestions.slice(0, 8)
+                            )"
+                            :key="name + index"
+                            v-on:click="showlist = false"
+                            >
+                            //Code for displaying the logo and search item text inside the anchor
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+           </span>
+       </template
+    </fdk-search>
       <div class="left bottom-menu">
         <div class="left__navigation">
           <ul class="l1-navigation-list">
