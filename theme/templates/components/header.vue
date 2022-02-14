@@ -18,6 +18,7 @@
                     @input="inputSearchResults(searchData)"
                     v-on:click="showlist = true"/>
                 <div>
+                
                     <div v-if="searchData.suggestions.length > 0 && showlist">
                         <ul>
                             <li
