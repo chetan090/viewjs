@@ -37,7 +37,7 @@
         </div>
       </div>
       <div class="social-link-block">
-        <h5 class="footer-head">GET IN TOUCH</h5>
+        <h5 class="footer-head">SIGN UP AND SAVE</h5>
         <div class="flat">
           <ul
             class="list"
